@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block title %}Speedcheck{% endblock %}
+
+{% block content %}
+<h1>Get Custom Graph</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        <h3>Start Time</h3>
+        <p>{{ form.start_day.label }} {{ form.start_day(size=32) }}
+        {{ form.start_month.label }} {{ form.start_month(size=32) }}
+        {{ form.start_year.label }} {{ form.start_year(size=32) }}
+        {{ form.start_hour.label }} {{ form.start_hour(size=32) }}
+        {{ form.start_minute.label }} {{ form.start_minute(size=32) }}</p>
+
+        <h3>End Time</h3>
+        <p>{{ form.end_day.label }} {{ form.end_day(size=32) }}
+        {{ form.end_month.label }} {{ form.end_month(size=32) }}
+        {{ form.end_year.label }} {{ form.end_year(size=32) }}
+        {{ form.end_hour.label }} {{ form.end_hour(size=32) }}
+        {{ form.end_minute.label }} {{ form.end_minute(size=32) }}</p>
+
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

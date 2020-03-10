@@ -1,0 +1,29 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1>Change Alert Settings</h1>
+    <form action="" method="post" novalidate>
+        {{ form.hidden_tag() }}
+        
+        <h3>Email Settings</h3>
+        <p>{{ form.use_email() }} {{ form.use_email.label }}</p>
+        <p>{{ form.send_email.label }} {{ form.send_email(size=32) }}</p>
+        <p>{{ form.send_email_password.label }} {{ form.send_email_password(size=32) }}</p>
+        <p>{{ form.send_email_server.label }} {{ form.send_email_server(size=32) }}</p>
+        <p>{{ form.send_email_port.label }} {{ form.send_email_port(size=32) }}</p>
+        <p>{{ form.receiving_email.label }} {{ form.receiving_email(size=32) }}</p>
+        <p>{{ form.default_subject.label }} {{ form.default_subject(size=32) }}</p>
+
+        <p>{{ form.use_sms() }} {{ form.use_sms.label }}</p>
+        <p>{{ form.twilio_number.label }} {{ form.twilio_number(size=32) }}</p>
+        <p>{{ form.twilio_API_key.label }} {{ form.twilio_API_key(size=32) }}</p>
+        <p>{{ form.twilio_SID.label }} {{ form.twilio_SID(size=32) }}</p>
+        <p>{{ form.recipient_number.label }} {{ form.recipient_number(size=32) }}</p>
+
+        <p>{{ form.ping.label }} {{ form.ping(size=32) }}</p>
+        <p>{{ form.download.label }} {{ form.download(size=32) }}</p>
+        <p>{{ form.upload.label }} {{ form.upload(size=32) }}</p>
+
+        <p>{{ form.submit() }}</p>
+    </form>
+{% endblock %}

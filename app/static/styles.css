@@ -1,0 +1,31 @@
+body {
+    background: linear-gradient(56.49deg, #416286 6.9%, #5E93CE 95.32%);
+    text-align: center;
+}
+
+.frame {
+    height: 50px;
+    width: 50px;
+    position: relative;
+}
+
+.sp-logo { padding: 10px; }
+
+.navbar-custom {
+    border-radius: 0;
+}
+
+.graph {
+    border-radius: 10px;
+    box-shadow: 3px 3px 10px 0px;
+    height: 90%;
+    width: 90%;
+}
+
+.grid-container {
+  size: 60%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 25px;
+  margin:0 auto;
+}

@@ -1,0 +1,16 @@
+<nav class="navbar navbar-default navbar-custom">
+    <div class="container-fluid">
+        <div class="navbar-header frame">
+            <a class="navbar-brand sp-logo" href="/"><img src="{{ url_for('static', filename='speedcheck.ico') }}" alt="Home" width="30" height="30"></a>
+        </div>
+        <ul class="nav navbar-nav" style="padding-left:50px">
+            <li class="{% if request.endpoint == '/graphs/hour' %}active{% endif %}"><a href="/graphs/hour">Last Hour</a></li>
+            <li class="{% if request.endpoint == '/graphs/day' %}active{% endif %}"><a href="/graphs/day">Last Day</a></li>
+            <li class="{% if request.endpoint == '/graphs/month' %}active{% endif %}"><a href="/graphs/month">Last Month</a></li>
+            <li class="{% if request.endpoint == '/graphs/alltime' %}active{% endif %}"><a href="/graphs/alltime">All Time</a></li>
+        </ul>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="{% if request.endpoint == 'settings' %}active{% endif %}"><a href="/settings">Settings</a></li>
+        </ul>
+    </div>
+</nav>

@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block body %}
+{{ super() }}
+<div class="grid-container">
+    <img class="graph" src="/render/{{timeframe}}/all" alt="All">
+    <img class="graph" src="/render/{{timeframe}}/ping" alt="Ping">
+    <img class="graph" src="/render/{{timeframe}}/download" alt="Download">
+    <img class="graph" src="/render/{{timeframe}}/upload" alt="Upload">
+</div>
+{% endblock %}
