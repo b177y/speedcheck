@@ -45,8 +45,8 @@ class ConfigForm(FlaskForm):
 
 
     ping = IntegerField('Max Ping')
-    download = IntegerField('Min Upload')
-    upload = IntegerField('Min Download')
+    download = IntegerField('Min Download')
+    upload = IntegerField('Min Upload')
 
     submit = SubmitField('Update')
     def load(self):

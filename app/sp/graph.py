@@ -51,6 +51,7 @@ def plot(data, gtype, name=""):
         return None
     output = io.BytesIO()
     FigureCanvasAgg(fig).print_png(output)
+    plt.close("all")
     return output.getvalue()
 
 

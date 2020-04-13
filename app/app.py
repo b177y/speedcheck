@@ -1,4 +1,4 @@
-from flask import Flask, render_template, Response, request
+from flask import Flask, render_template, Response, request, redirect, url_for
 from flask_bootstrap import Bootstrap
 from sp.query import time_query
 from sp.graph import plot
@@ -13,6 +13,7 @@ def index():
     form = CustomTime()
     if request.method == 'POST':
         pass
+    return redirect(url_for('show_graphs', timeframe="hour"))
     return render_template('index.html', form=form)
 
 @app.route('/graphs/<timeframe>')

@@ -9,20 +9,22 @@ db = client['speedcheck']
 collection = db['testdata']
 
 print("\nStarting speedtest...")
-data = subprocess.check_output('speedtest --csv', shell=True)
+data = subprocess.check_output('speedtest -f json', shell=True)
 data = data.decode("utf-8")
-data = data.split(",")
+data = json.loads(data)
 print("Finished speedtest")
 
 result = {
         "_id" : datetime.datetime.now(),
-        "ping" : float(data[5]),
-        "download" : float(data[6]) / 10 ** 6,
-        "upload" : float(data[7]) / 10 ** 6
+        "ping" : data['ping']['latency'],
+        "download" : (data['download']['bytes']*8) / (data['download']['elapsed']*1000),
+        "upload" : (data['upload']['bytes']*8) / (data['upload']['elapsed']*1000),
         }
 
 collection.insert_one(result)
 print("Added results into database:\nPing - {0}\nDownload - {1}\nUpload - {2}\nAt time {3}".format(result['ping'], result['download'], result['upload'], result['_id']))
+with open('/tmp/dmapi.log', 'a+') as logfile:
+    logfile.write("Successfully recorded test at " + str(result['_id'])+"\n")
 
 if check_result(result):
     print("Alert sent")
